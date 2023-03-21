@@ -1,6 +1,6 @@
 import subprocess
 
-def separated(command):
+def separated_bytes(command):
     '''
     >>> exit_code, out, err = separated(['ls', '-l'])
     '''
@@ -12,6 +12,9 @@ def separated(command):
     exit_code = proc.returncode
     return exit_code, out, err
 
+def separated(command):
+    exit_code, out, err = separated_bytes(command)
+    return exit_code, out.decode('utf8'), err.decode('utf-8')
 
 def merged(command):
     '''
