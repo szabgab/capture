@@ -1,6 +1,6 @@
 import subprocess
 
-def separated(cmd):
+def separated(command):
     '''
     >>> exit_code, out, err = separated(['ls', '-l'])
     '''
