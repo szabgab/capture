@@ -2,7 +2,7 @@ import subprocess
 
 def separated_bytes(command):
     '''
-    >>> exit_code, out, err = separated(['ls', '-l'])
+    >>> exit_code, out, err = separated_bytes(['ls', '-l'])
     '''
     proc = subprocess.Popen(command,
         stdout = subprocess.PIPE,
@@ -13,6 +13,9 @@ def separated_bytes(command):
     return exit_code, out, err
 
 def separated(command):
+    '''
+    >>> exit_code, out, err = separated(['ls', '-l'])
+    '''
     exit_code, out, err = separated_bytes(command)
     return exit_code, out.decode('utf8'), err.decode('utf-8')
 
